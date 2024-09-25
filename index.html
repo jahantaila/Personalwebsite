@@ -6,6 +6,20 @@
     <title>Jahan Taila</title>
     <link rel="stylesheet" href="./style.css">
     <script src = "https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"> </script>
+
+    <script src = "index.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "_QbB9Ij0UCeJ8-a8c",
+      });
+   })();
+</script>
+
+
 </head>
 <body>
 
@@ -64,7 +78,7 @@
         </div>
     </header>
 
-    <button class="mail__btn click">
+    <button class="mail__btn click" onclick = "toggleModal()">
 
         <i class = "fas fa-envelope"></i>
 
@@ -112,8 +126,48 @@
 
 
         <div class="modal__half modal__contact">
-            Let's have a chat
+            <h3 class = "modal__title modal__title--contact">
+                Let's have a chat!!!
+            </h3>
+
+            <h3 class = "modal__sub-title modal__sub-title--contact">
+                
+            </h3>
+
+            <form id = "conact__form" onsubmit = "contact(event)">
+                <div class="form__item">
+                    <label  class = "form__item--label" >Name</label>
+                    <input class = "input" type="text" name = "user_name" required> </input>
+
+                </div>
+
+                <div class="form__item">
+                    <label  class = "form__item--label" >Email</label>
+                    <input class = "input" type="email" name = "user_email" required></input>
+                    
+                </div>
+
+                <div class="form__item">
+                    <label  class = "form__item--label" >Message</label>
+                    <textarea class = "input" type="text" name = "user_message" required></textarea>
+                    
+                </div>
+                <button id = "contact__submit" class = "form__submit">Send it my way!</button>
+            </form>
+
+            <div class="modal__overlay modal__overlay-loading">
+                <i class = "fas fa-spinner"></i>
+            </div>
+
+            <div class="modal__overlay modal__overlay-success">
+               Thanks for the message! looking forward to our convo!
+            </div>
+
+
         </div>
+
+        <i class = "fas fa-times modal__exit click"></i>
+
     </div>
 
 </section> 
